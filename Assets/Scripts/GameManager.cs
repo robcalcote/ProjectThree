@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public GameObject towerOne;
+    public Sprite towerOne;
+    public GameObject circle;
     
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Instantiate(towerOne, new Vector3(0, 0, 0), Quaternion.identity);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SpriteRenderer circleRenderer = circle.GetComponent<SpriteRenderer>();
+        if (circleRenderer != null && towerOne != null)
+        {
+            circleRenderer.sprite = towerOne;
+        }
+        else
+        {
+            Debug.LogError("Missing references! Ensure towerOne and circle are set up correctly.");
+        }
     }
 }
