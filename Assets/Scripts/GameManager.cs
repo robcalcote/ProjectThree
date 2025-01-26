@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     {
         Vector3 newSpeedyStartPoint = new Vector3(currentMap.mapStartPoint.x, currentMap.mapStartPoint.y, 0);
         GameObject newSpeedy = Instantiate(speedyEnemyPfb, newSpeedyStartPoint, Quaternion.identity);
+
+        newSpeedy.GetComponent<Enemy>().Initialize();
     }
     
     void Start() { 
@@ -32,15 +34,5 @@ public class GameManager : MonoBehaviour
         Map newMap = newMapObj.GetComponent<Map>();
         
         SpawnEnemy();
-        
-        SpriteRenderer circleRenderer = circle.GetComponent<SpriteRenderer>();
-        if (circleRenderer != null && towerOneSprite != null)
-        {
-            circleRenderer.sprite = towerOneSprite;
-        }
-        else
-        {
-            Debug.LogError("Missing references! Ensure towerOne and circle are set up correctly.");
-        }
     }
 }
