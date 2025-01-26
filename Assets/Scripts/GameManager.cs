@@ -1,16 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public Sprite towerOne;
     public GameObject circle;
+    public Sprite towerOneSprite;
+    public GameObject mapPfb;
+    public List<Sprite> mapSprites;
     
-    void Start()
-    {
+    void Start() {
+        mapPfb.GetComponent<SpriteRenderer>().sprite = mapSprites[0];
         SpriteRenderer circleRenderer = circle.GetComponent<SpriteRenderer>();
-        if (circleRenderer != null && towerOne != null)
+        if (circleRenderer != null && towerOneSprite != null)
         {
-            circleRenderer.sprite = towerOne;
+            circleRenderer.sprite = towerOneSprite;
         }
         else
         {
