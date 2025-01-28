@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 10;
     public int speed = 5;
+    public int damage = 1;
     
     public GameManager gameManager;
     public int currentDirectionIndex = 0;
