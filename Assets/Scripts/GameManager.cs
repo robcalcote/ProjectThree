@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,10 +11,12 @@ public class GameManager : MonoBehaviour
     public float mapSize = 10;
     public GameObject speedyEnemyPfb;
     public GameObject tankyEnemyPfb;
-
+    
     public Camera mainCamera;
 
     public Map currentMap;
+
+    public Player player;
     
     void SpawnEnemy()
     {
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
         mapPfb.GetComponent<SpriteRenderer>().sprite = mapSprites[0];
         GameObject newMapObj = Instantiate(mapPfb, mapCenter, Quaternion.identity);
         Map newMap = newMapObj.GetComponent<Map>();
+
+        
         
         SpawnEnemy();
     }
