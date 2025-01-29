@@ -24,13 +24,6 @@ public class Enemy : MonoBehaviour
     //     
     //     
     // }
-    
-    
-    
-    void Start()
-    {
-        
-    }
 
     public void Initialize()
     {
@@ -38,24 +31,31 @@ public class Enemy : MonoBehaviour
         targetPosition = new Vector3(gameManager.currentMap.directions[currentDirectionIndex].x, gameManager.currentMap.directions[currentDirectionIndex].y, 0);
     }
     
-    void Update()
-    {
-        // Debug.Log("current position is: " + transform.position);
-        // Debug.Log("target position is: " + targetPosition);
-        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-        {
-            // transform.position = Vector3.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+    void Update() {
+        if (currentDirectionIndex == gameManager.currentMap.directions.Count) {
+            Attack();
+            return;
         }
-        else
-        {
-            currentDirectionIndex++;
-            targetPosition = gameManager.currentMap.directions[currentDirectionIndex];
-        }
+        Move();
     }
 
     void Move()
     {
-        
+        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
+        else {
+            currentDirectionIndex++;
+            if (currentDirectionIndex >= gameManager.currentMap.directions.Count) {
+                return;
+            }
+            targetPosition = gameManager.currentMap.directions[currentDirectionIndex];
+        }
+    }
+
+    void Attack() {
+        gameManager.player.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
