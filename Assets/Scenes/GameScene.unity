@@ -795,7 +795,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   maps: []
-  towers: []
+  towers:
+  - {fileID: 987276558930523108, guid: bdccdf3c8b21bae43a6f87288bb082e6, type: 3}
+  - {fileID: 987276558930523108, guid: e627bf7fa022dad4c9955d82dc544a30, type: 3}
 --- !u!4 &1032970643
 Transform:
   m_ObjectHideFlags: 0
