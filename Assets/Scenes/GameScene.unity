@@ -547,6 +547,7 @@ MonoBehaviour:
   circle: {fileID: 0}
   towerOneSprite: {fileID: 21300000, guid: c251562dc0f72d34ca11aeea1c96ec57, type: 3}
   mapPfb: {fileID: 1949016772072522157, guid: d8ca723abc7e6234f9f6a529c5dceeff, type: 3}
+  mainCanvas: {fileID: 1405981262}
   mapSprites:
   - {fileID: 21300000, guid: 7489679820035a048ada4dd7d67fb43b, type: 3}
   mapSize: 10
@@ -713,6 +714,7 @@ GameObject:
   - component: {fileID: 636563027}
   - component: {fileID: 636563029}
   - component: {fileID: 636563028}
+  - component: {fileID: 636563030}
   m_Layer: 5
   m_Name: PlacementGrid
   m_TagString: Untagged
@@ -729,15 +731,15 @@ RectTransform:
   m_GameObject: {fileID: 636563026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.875, y: 1.875, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1405981266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 320, y: 320}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636563028
 MonoBehaviour:
@@ -777,6 +779,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636563026}
   m_CullTransparentMesh: 1
+--- !u!114 &636563030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636563026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1
 --- !u!1 &975085651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1096,7 @@ GameObject:
   - component: {fileID: 1405981264}
   - component: {fileID: 1405981263}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1125,7 +1141,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1405981265
 Canvas:
   m_ObjectHideFlags: 0
@@ -1135,7 +1151,7 @@ Canvas:
   m_GameObject: {fileID: 1405981262}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1157,8 +1173,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405981262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.01904762, y: 0.01904762, z: 0.01904762}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 100539069}
@@ -1168,8 +1184,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1169, y: 525}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1546864876
 GameObject:
   m_ObjectHideFlags: 0

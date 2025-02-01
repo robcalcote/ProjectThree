@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public GameObject circle;
     public Sprite towerOneSprite;
     public GameObject mapPfb;
+    public GameObject mainCanvas;
     public List<Sprite> mapSprites;
     public float mapSize = 10;
     public GameObject speedyEnemyPfb;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
         GameObject newMapObj = Instantiate(mapPfb, mapCenter, Quaternion.identity);
         Map newMap = newMapObj.GetComponent<Map>();
 
-        
+        mainCanvas.transform.position = new Vector3(mapCenter.x, mapCenter.y, 0);
         
         SpawnEnemy();
     }
