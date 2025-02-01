@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,7 +16,8 @@ public class GameManager : MonoBehaviour
     public Map currentMap;
 
     public Player player;
-    
+
+
     void SpawnEnemy()
     {
         Vector3 newSpeedyStartPoint = new Vector3(currentMap.mapStartPoint.x, currentMap.mapStartPoint.y, 0);
