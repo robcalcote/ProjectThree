@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GameTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class GameTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     public GameManager gameManager;
     public UiManager uiManager;
     
@@ -12,7 +12,7 @@ public class GameTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public SpriteRenderer hoverSprite;
 
-    private void ToggleHoverImage() {
+    public void ToggleHoverImage() {
         if (!uiManager.towerPlacementMode) return;
         if(isPathTile) return;
         hoverSprite.enabled = !hoverSprite.enabled;
@@ -21,9 +21,16 @@ public class GameTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData) {
         ToggleHoverImage();
+        gameManager.hoveredTile = gameObject;
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         ToggleHoverImage();
+        gameManager.hoveredTile = null;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        gameManager.PlaceTower();
     }
 }

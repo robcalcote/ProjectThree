@@ -3,6 +3,7 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEditor.Searcher;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
     public GameData gameData;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour {
     public GameObject tilePfb;
     public GameObject tileContainer;
     public GameObject placementGrid;
+    public GameObject hoveredTile;
     
     public Camera mainCamera;
 
@@ -52,18 +54,33 @@ public class GameManager : MonoBehaviour {
         newSpeedy.GetComponent<Enemy>().Initialize();
     }
 
-    private void InitializeTiles() {
-        for (int x = 0; x < mapSize; x++) {
-            for (int y = 0; y < mapSize; y++) {
+    private void InitializeTiles()
+    {
+        for (int x = 0; x < mapSize; x++)
+        {
+            for (int y = 0; y < mapSize; y++)
+            {
                 GameObject newTile = Instantiate(tilePfb, new Vector3(x, y, 0),
                     Quaternion.identity, tileContainer.transform);
                 GameTile newGameTile = newTile.GetComponent<GameTile>();
                 newGameTile.uiManager = uiManager;
+                newGameTile.gameManager = this;
                 newTile.name = $"Tile({x}, {y})";
-                if (currentMap.directions.Any(v => v.x == x && v.y == y)) {
+                if (currentMap.directions.Any(v => v.x == x && v.y == y))
+                {
                     newGameTile.isPathTile = true;
                 }
             }
         }
+    }
+
+    public void PlaceTower()
+    {
+        Instantiate(uiManager.selectedTower, hoveredTile.transform);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        PlaceTower();
     }
 }
