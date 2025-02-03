@@ -561,6 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad697cd18620cd4ab3068b4ff86fa6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 1032970642}
+  uiManager: {fileID: 1343825551}
   towerOneSprite: {fileID: 21300000, guid: c251562dc0f72d34ca11aeea1c96ec57, type: 3}
   mapPfb: {fileID: 1949016772072522157, guid: d8ca723abc7e6234f9f6a529c5dceeff, type: 3}
   mainCanvas: {fileID: 1405981262}
