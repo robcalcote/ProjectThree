@@ -51,8 +51,9 @@ public class GameManager : MonoBehaviour
     private void InitializeTiles() {
         for (int x = 0; x < mapSize; x++) {
             for (int y = 0; y < mapSize; y++) {
-                Instantiate(tilePfb, new Vector3(x, y, 0),
+                GameObject newTile = Instantiate(tilePfb, new Vector3(x, y, 0),
                     Quaternion.identity, tileContainer.transform);
+                newTile.name = $"Tile({x}, {y})";
             }
         }
     }
