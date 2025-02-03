@@ -46,8 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed847a98e151a2045a9e7480c8367c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  uiManager: {fileID: 0}
   hovered: 0
   selected: 0
+  isPathTile: 0
   tower: {fileID: 0}
   hoverSprite: {fileID: 1412545684285213341}
 --- !u!212 &1412545684285213341
