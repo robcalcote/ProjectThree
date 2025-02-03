@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
+using UnityEditor.Searcher;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+    public GameData gameData;
+    public UiManager uiManager;
+    
     public Sprite towerOneSprite;
     public GameObject mapPfb;
     public GameObject mainCanvas;
@@ -53,7 +57,12 @@ public class GameManager : MonoBehaviour
             for (int y = 0; y < mapSize; y++) {
                 GameObject newTile = Instantiate(tilePfb, new Vector3(x, y, 0),
                     Quaternion.identity, tileContainer.transform);
+                GameTile newGameTile = newTile.GetComponent<GameTile>();
+                newGameTile.uiManager = uiManager;
                 newTile.name = $"Tile({x}, {y})";
+                if (currentMap.directions.Any(v => v.x == x && v.y == y)) {
+                    newGameTile.isPathTile = true;
+                }
             }
         }
     }
