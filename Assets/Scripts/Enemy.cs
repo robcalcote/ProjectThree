@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        if (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         }
