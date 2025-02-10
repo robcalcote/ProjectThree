@@ -74,8 +74,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void PlaceTower()
-    {
-        Instantiate(uiManager.selectedTower, hoveredTile.transform);
+    public void PlaceTower(GameObject gameTile) {
+        if (gameTile.GetComponent<GameTile>().IsPath()) {
+            Debug.Log("Can't place towers on enemy path");
+            return;
+        }
+        Instantiate(uiManager.selectedTower, gameTile.transform);
     }
 }

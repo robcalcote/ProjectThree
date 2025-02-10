@@ -31,6 +31,10 @@ public class GameTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        gameManager.PlaceTower();
+        gameManager.PlaceTower(gameObject);
+    }
+
+    public bool IsPath() {
+        return isPathTile;
     }
 }
