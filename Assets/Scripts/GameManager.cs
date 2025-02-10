@@ -78,9 +78,4 @@ public class GameManager : MonoBehaviour {
     {
         Instantiate(uiManager.selectedTower, hoveredTile.transform);
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        PlaceTower();
-    }
 }
